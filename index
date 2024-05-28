@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="bg">
+        <h1>Calculadora</h1>
+        <div class="tela"><p class="text"></p></div>
+        
+        <div class="geral">
+            <div class="coluna">
+                <div class="buttons">
+                    <button onclick="delet()">C</button>
+                    <button onclick="back()"><</button>
+                    <button onclick="insert('/')">/</button>
+                    <button onclick="insert('7')">7</button>
+                    <button onclick="insert('8')">8</button>
+                    <button onclick="insert('9')">9</button>
+                    <button onclick="insert('4')">4</button>  
+                    <button onclick="insert('5')">5</button>
+                    <button onclick="insert('6')">6</button>
+                    <button onclick="insert('1')">1</button>
+                    <button onclick="insert('2')">2</button>
+                    <button onclick="insert('3')">3</button>
+                </div>
+                <div class="inferiores">
+                    <button class="zero" onclick="insert('0')">0</button>
+                    <button onclick="insert('.')">.</button>
+                </div>
+            </div>   
+            <div class="laterais">
+                <div class="lateral">
+                    <div class="lat1"><button onclick="insert('*')">X</button></div>
+                    <div class="lat2" onclick="insert('-')"><button>-</button></div>
+                    <div class="lat3"onclick="insert('+')"><button>+</button></div>
+                </div>
+                <div class="diventer"> 
+                    <button class="enter" onclick="calcular()">=</button>
+                </div>  
+            </div>
+        </div>
+    </div>       
+</div>
+
+<script>
+
+    var a = window.document.getElementsByClassName("text")[0];  
+
+    
+    
+    function insert(num) {
+ 
+        if (num == "/" || num == "-" || num == "+" ||  num == "*"){
+
+            if (a.innerText == "") {
+
+                window.alert("Insira valores antes de realizar operações")
+
+
+            }
+
+            else {
+
+
+                a.innerHTML += num
+
+
+            }}
+
+        else if (num == "." ) {
+
+
+
+            window.alert("Insira valores antes de usar ponto")
+
+
+        }
+
+        else {
+
+            a.innerHTML += num
+        }}
+
+
+    function delet() {
+
+        a.innerHTML = ""
+
+
+    }
+
+    
+
+    function calcular(){
+
+      var resultado = a.innerText
+
+      var calc = eval(resultado)
+
+      a.innerText = calc
+
+    }
+
+    function back(){
+
+        var resultado = a.innerHTML
+        a.innerText = resultado.substring(0, resultado.length -1)
+
+    }
+    
+
+</script>
+  
+</body>
+</html>
